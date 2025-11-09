@@ -1,21 +1,33 @@
 {
   "$schema": "https://raw.githubusercontent.com/muamars/terminal-theme/main/themes/schema.json",
+  "version": 3,
   "blocks": [
     {
       "type": "prompt",
+      "alignment": "left",
       "segments": [
         {
           "type": "git",
-          "template": "[{{ .HEAD }}]",
-          "style": "plain"
+          "background": "#C8E6C9",
+          "foreground": "#1B5E20",
+          "style": "plain",
+          "template": "\ue0b6 {{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} ✏ {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} ✔ {{ .Staging.String }}{{ end }} \ue0b4",
+          "properties": {
+            "branch_template": "{{ .Branch }}",
+            "fetch_status": true
+          }
         },
         {
           "type": "path",
-          "template": " {{ .Path }}",
-          "style": "plain"
+          "background": "#BBDEFB",
+          "foreground": "#0D47A1",
+          "style": "plain",
+          "template": "\ue0b6 {{ .Path }} \ue0b4",
+          "properties": {
+            "style": "folder"
+          }
         }
       ]
     }
-  ],
-  "version": 1
+  ]
 }
