@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Terminal Theme Schema",
+  "description": "Schema untuk konfigurasi tema terminal berbasis Oh My Posh custom buatan muamars.",
+  "type": "object",
+  "properties": {
+    "version": {
+      "type": "integer",
+      "description": "Versi konfigurasi tema (biasanya 3)."
+    },
+    "blocks": {
+      "type": "array",
+      "description": "Daftar blok yang membentuk prompt.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["prompt", "rprompt"],
+            "description": "Jenis blok, biasanya 'prompt' atau 'rprompt'."
+          },
+          "alignment": {
+            "type": "string",
+            "enum": ["left", "right"],
+            "description": "Posisi blok dalam prompt."
+          },
+          "segments": {
+            "type": "array",
+            "description": "Daftar segmen di dalam blok.",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "path",
+                    "git",
+                    "os",
+                    "session",
+                    "python",
+                    "text"
+                  ],
+                  "description": "Tipe segmen yang digunakan."
+                },
+                "template": {
+                  "type": "string",
+                  "description": "Template tampilan segmen (bisa berisi variable seperti {{ .Path }})."
+                },
+                "foreground": {
+                  "type": "string",
+                  "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+                  "description": "Warna teks dalam format hex (misal #FFFFFF)."
+                },
+                "background": {
+                  "type": "string",
+                  "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+                  "description": "Warna latar belakang dalam format hex (misal #000000)."
+                },
+                "style": {
+                  "type": "string",
+                  "enum": ["plain", "powerline"],
+                  "description": "Gaya tampilan segmen."
+                },
+                "properties": {
+                  "type": "object",
+                  "description": "Properti tambahan untuk segmen (misalnya fetch_status, branch_template, dsb)."
+                }
+              },
+              "required": ["type"]
+            }
+          }
+        },
+        "required": ["type", "segments"]
+      }
+    }
+  },
+  "required": ["version", "blocks"]
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://raw.githubusercontent.com/muamars/terminal-theme/main/themes/schema.json",
+  "blocks": [
+    {
+      "type": "prompt",
+      "segments": [
+        {
+          "type": "git",
+          "template": "[{{ .HEAD }}]",
+          "style": "plain"
+        },
+        {
+          "type": "path",
+          "template": " {{ .Path }}",
+          "style": "plain"
+        }
+      ]
+    }
+  ],
+  "version": 1
+}
