@@ -8,10 +8,12 @@
       "segments": [
         {
           "type": "git",
-          "style": "plain",
-          "background": "#C8E6C9",
-          "foreground": "#1B5E20",
-          "template": "\ue0b6 {{ .HEAD }}{{ if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} ✏ {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} ✔ {{ .Staging.String }}{{ end }} \ue0b4",
+          "style": "diamond",
+          "background": "#4CAF50",
+          "foreground": "#FFFFFF",
+          "leading_diamond": "",
+          "trailing_diamond": "",
+          "template": "{{ .HEAD }}{{ if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} ✏ {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} ✔ {{ .Staging.String }}{{ end }}",
           "properties": {
             "branch_template": "{{ .Branch }}",
             "fetch_status": true
@@ -19,10 +21,12 @@
         },
         {
           "type": "path",
-          "style": "plain",
-          "background": "#BBDEFB",
-          "foreground": "#0D47A1",
-          "template": "\ue0b6 {{ .Path }} \ue0b4",
+          "style": "diamond",
+          "background": "#2196F3",
+          "foreground": "#FFFFFF",
+          "leading_diamond": "",
+          "trailing_diamond": "",
+          "template": "{{ .Path }}",
           "properties": {
             "style": "folder"
           }
