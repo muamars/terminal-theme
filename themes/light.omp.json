@@ -9,8 +9,8 @@
         {
           "type": "git",
           "style": "diamond",
-          "background": "#4CAF50",
-          "foreground": "#FFFFFF",
+          "background": "#E0E0E0",
+          "foreground": "#424242",
           "leading_diamond": "",
           "trailing_diamond": "",
           "template": "{{ .HEAD }}{{ if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} ✏ {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} ✔ {{ .Staging.String }}{{ end }}",
@@ -22,8 +22,8 @@
         {
           "type": "path",
           "style": "diamond",
-          "background": "#2196F3",
-          "foreground": "#FFFFFF",
+          "background": "#E0E0E0",
+          "foreground": "#424242",
           "leading_diamond": "",
           "trailing_diamond": "",
           "template": "{{ .Path }}",
